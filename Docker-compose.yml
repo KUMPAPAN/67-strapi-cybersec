@@ -5,10 +5,10 @@ services:
     image: kumpapan/strapi
     container_name: 67-ced-strapi
     environment:
-      - DATABASE_CLIENT=value
-      - DATABASE_HOST=value
-      - DATABASE_PORT=value
-      - DATABASE_NAME=value
-      - DATABASE_USERNAME=value
-      - DATABASE_PASSWORD=value
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=192.168.211.189
+      - DATABASE_PORT=54321
+      - DATABASE_NAME=kumpapan
+      - DATABASE_USERNAME=kumpapan
+      - DATABASE_PASSWORD=P-Tr823i7L
 
