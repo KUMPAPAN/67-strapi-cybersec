@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  strapi_server:
+
+    image: kumpapan/app:1.0.0
+    container_name: 67-ced-strapi_server
+    restart:  unless-stopped
+    env_file: .env
+    environment:
+      - DATABASE_CLIENT: ${DATABASE_CLIENT}
+      - DATABASE_HOST: ${DATABASE_NAME}
+      - DATABASE_PORT: db
+      - DATABASE_NAME: ${DATABASE_PORT}
+      - DATABASE_USERNAME: ${DATABASE_USERNAME}
+      - DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    depends_on:
+      - db
+    ports:
+      - 1337:1337
+  db:
+    image: postgres:13
+    container_name: 67-ced-db
+    restart:  unless-stopped
+    env_file: .env
+    environment:
+      - POSTGRES_USER: ${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      - POSTGRES_DB: ${DATABASE_NAME}
+      
